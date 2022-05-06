@@ -34,6 +34,12 @@ Contract:
 
 ### _TimeLockController will be the contract owner of the Lever Token contract._
 
+## TokenSwap
+A token swapping contract with defined exchange ratio
+
+Contract:
+[TokenSwap.sol](./contracts/TokenSwap.sol)
+
 ### References:
 https://docs.openzeppelin.com/contracts/4.x/api/proxy#UUPSUpgradeable
 https://docs.openzeppelin.com/contracts/4.x/api/governance#TimelockController
