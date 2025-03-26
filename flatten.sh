@@ -1,0 +1,1 @@
+forge flatten contracts/Lever2.sol > flattened/Lever2_flat.sol
