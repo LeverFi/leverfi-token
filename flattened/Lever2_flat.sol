@@ -2033,11 +2033,12 @@ abstract contract ERC20PermitUpgradeable is Initializable, ERC20Upgradeable, IER
 // contracts/Lever2.sol
 
 /// @custom:security-contact security@leverfi.io
+/// @custom:oz-upgrades-from contracts/Lever.sol:Lever
 contract Lever2 is Initializable, ERC20Upgradeable, PausableUpgradeable, OwnableUpgradeable, ERC20PermitUpgradeable, UUPSUpgradeable {
     /// @custom:oz-upgrades-unsafe-allow constructor
-    constructor() initializer {}
+    constructor() {}
 
-    function initialize() initializer public {
+    function initialize() public initializer {
         __ERC20_init("Lever", "LEVER");
         __Pausable_init();
         __Ownable_init();
