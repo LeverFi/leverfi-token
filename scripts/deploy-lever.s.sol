@@ -10,6 +10,9 @@ import {Lever2} from "../contracts/Lever2.sol";
 contract DeployLeverScript is Script {
     function run() public {
         vm.startBroadcast();
+
+        console.log("Deployer ->", msg.sender);
+
         Lever2 lever2 = new Lever2();
         console.log("Deployed Lever2 implementation -> ", address(lever2));
     }
