@@ -5,6 +5,8 @@ import {Vm} from "forge-std/Vm.sol";
 import {Script} from "forge-std/Script.sol";
 import {console} from "forge-std/console.sol";
 
+import {Upgrades} from "openzeppelin-foundry-upgrades/LegacyUpgrades.sol";
+
 import {Lever} from "../contracts/Lever.sol";
 import {TimelockController} from "../contracts/TimelockController.sol";
 
@@ -13,13 +15,21 @@ contract SimulateUpgradeLeverScript is Script {
     address public _leverProxy = 0x4B5f49487ea7B3609b1aD05459BE420548789f1f;
     address public operator = 0xa2F5acBA956A226e91C87B0F4c2215534332Fa5b;
 
-    function setUp() public {
+    function setUp() public view {
         console.log("TimelockController delay:", timelockController.getMinDelay());
     }
 
     function run() public {
         // ================== Upgrade ==================
         console.log("");
+
+        // OZ Upgrade
+//        vm.startPrank(address(timelockController), address(timelockController));
+//        Upgrades.upgradeProxy(
+//            _leverProxy,
+//            "Lever2.sol",
+//            ""
+//        );
 
         bytes memory upgradeToData = abi.encodeWithSignature("upgradeTo(address)", 0xc5985E73DD78d60D4AB193db30778593Ea4CCfFD);
         console.log("upgradeTo(address):");
